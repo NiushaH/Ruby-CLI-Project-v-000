@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+TeamGift::CLI.new.call
+
