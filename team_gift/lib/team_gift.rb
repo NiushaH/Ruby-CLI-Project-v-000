@@ -1,6 +1,12 @@
-require "team_gift/version"
+require 'open-uri'
+require 'nokogiri'
+require 'pry'
 
-module TeamGift
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "./team_gift/version"
+require_relative './team_gift/sportslist'
+require_relative './team_gift/cli'
+
+# module TeamGift
+#   class Error < StandardError; end
+#   # Your code goes here...
+# end

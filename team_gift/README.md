@@ -1,8 +1,6 @@
 # TeamGift
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/team_gift`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Demonstrating my ability to write concise, easy-to-read Object-Oriented Ruby code (e.g. good design patterns, objects, not hashes; separation of concerns, etc.)...  RegEx and the selectors used to parse scraped web page data are less important for this assignment.
 
 ## Installation
 
@@ -20,9 +18,11 @@ Or install it yourself as:
 
     $ gem install team_gift
 
+To experiment with that code, run `bin/console` for an interactive prompt.
+
 ## Usage
 
-TODO: Write usage instructions here
+This Gem is for usage by Sports Treasures, a company that makes thoughtful, inclusive end-of-season gifts for team athletes.
 
 ## Development
 

@@ -17,7 +17,12 @@ Purchase the team gift package and require the following information:
   APP FOR STREAMLINING PROJECT TO COMPLETION
 ==============================================
 1. Choose sport you play
+     - a sport has positions played by a team
 2. Select the team you're on
+     - a team has a team name
+     - a team has a roster of names
+        * a team has a coach and a captain
+        * a team has players with many positions
 3. Select the person you are on the team
 
     # In version 2.0, I would like steps 1-3 to be accomplished via a unique
