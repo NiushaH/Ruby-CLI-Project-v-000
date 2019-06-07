@@ -1,16 +1,30 @@
-# class TeamGift::SoccerTournaments
-# attr_accessor :name, :teams, :url
-#   def self.all
-#     #should return list of soccer tournaments
-#     puts <<-DOC.gsub /^\s*/, ''
-#       1. Men's World Cup Soccer 2018
-#     DOC
+class TeamGift::SoccerTournaments
+attr_accessor :name, :teams, :url
 
-#     soccer_tournament_1 = self.new
-#     soccer_tournament_1.name = "Men's World Cup Soccer 2018"
-#     soccer_tournament_1.teams = "list of country teams"
-#     soccer_tournament_1.url = "url"
+  @@all = []
 
-#     [tournament_1]
-#   end
-# end
+  def initialize(name)
+    @tournament = name
+
+  end
+
+  def self.all
+    #should return list of soccer tournaments
+    puts <<-DOC.gsub /^\s*/, ''
+      1. Men's World Cup Soccer 2018
+    DOC
+
+    soccer_tournament_1 = self.new
+    soccer_tournament_1.name = "Men's World Cup Soccer 2018"
+    soccer_tournament_1.teams = "list of country teams"
+    soccer_tournament_1.url = "url"
+
+    [tournament_1]
+  end
+end
+
+
+world_cup = SoccerTournament.new
+world_cup.name = "Men's World Cup Soccer 2018"
+world_cup.teams =
+world_cup.url = "https://www.fifa.com/worldcup/teams/"

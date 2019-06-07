@@ -6,7 +6,7 @@ require_relative "./team_gift/version"
 require_relative './team_gift/sportslist'
 require_relative './team_gift/cli'
 
-# module TeamGift
+module TeamGift
 #   class Error < StandardError; end
 #   # Your code goes here...
-# end
+end

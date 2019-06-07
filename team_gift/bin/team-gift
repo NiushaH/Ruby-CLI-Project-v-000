@@ -1,7 +1,6 @@
 #!/usr/bin/env ruby
 
 require "bundler/setup"
-require "team_gift"
+require "./lib/team_gift"
 
 TeamGift::CLI.new.call
-

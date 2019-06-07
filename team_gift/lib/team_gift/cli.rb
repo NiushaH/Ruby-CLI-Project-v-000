@@ -24,10 +24,11 @@ class TeamGift::CLI
       input = gets.strip.downcase
       if input.to_i == 1 ||  input.to_i == 2
         the_sport = @sports[input.to_i-1]
-        puts "#{the_sport.name}"
+        puts "Great to know!  You're on a #{the_sport.name.downcase} team."
+        list_tournaments
       elsif input == "list"
         list_sports
-      elsif input.to_i == 3 || input.to_i > 3
+      elsif input.to_i == 0 || input.to_i == 3 || input.to_i > 3
         puts "Please enter a number corresponding to the sport you played."
         list_sports
       else
@@ -36,8 +37,20 @@ class TeamGift::CLI
     end
   end
 
+  def list_tournaments
+    puts "Which #{the_sport.name.downcase} tournament is your team playing this season?"
+    if the_sport.name == "Basketball"
+      puts basketball_tournaments
+    elsif the_sport.name == "Soccer"
+      puts SoccerTournaments.all
+    end
+  end
+
   def goodbye
     puts "We appreciate your sharing your perspective to create a personalized Sports Treasures team gift!"
   end
 
 end
+
+
+
