@@ -1,4 +1,4 @@
-# class TeamGift::SoccerRoster
+# class TeamGiftCLI::SoccerRoster
 # attr_accessor :tournament_name, :team_name, :roster
 
 #   def self.all

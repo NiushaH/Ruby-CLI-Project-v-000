@@ -1,10 +1,10 @@
-class TeamGift::SoccerTeams
+class TeamGiftCLI::SoccerTeams
 attr_accessor :tournament_name, :team_name, :roster, :positions
 
   def self.all
     #Scrape World Cup Website and then return team name, roster of players, players positions
     self.scrape_WorldCupTeams
-  end 
+  end
 
   def self.scrape_WorldCupTeams
     Mens_Soccer_2018_World_Cup_Teams = []

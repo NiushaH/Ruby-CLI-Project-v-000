@@ -1,4 +1,4 @@
-class TeamGift::SportsList
+class TeamGiftCLI::SportsList
 attr_accessor :name, :tournaments, :teams, :roster
 
 #   @@all = []

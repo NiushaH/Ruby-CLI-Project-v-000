@@ -1,4 +1,4 @@
-# class TeamGift::Basketball
+# class TeamGiftCLI::Basketball
 
 # attr_accessor :positions, :tournament
 

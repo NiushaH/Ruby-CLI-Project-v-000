@@ -1,4 +1,4 @@
-class TeamGift::SoccerTournaments
+class TeamGiftCLI::SoccerTournaments
 attr_accessor :name, :teams, :url
 
   @@all = []

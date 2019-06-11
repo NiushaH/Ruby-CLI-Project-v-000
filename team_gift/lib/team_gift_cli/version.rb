@@ -1,3 +1,3 @@
-module TeamGift
+module TeamGiftCLI
   VERSION = "0.1.0"
 end

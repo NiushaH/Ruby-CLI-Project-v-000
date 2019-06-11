@@ -1,14 +1,14 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require_relative './lib/team_gift/version'
+require_relative './lib/team_gift_cli/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "team_gift"
-  spec.version       = TeamGift::VERSION
+  spec.version       = TeamGiftCLI::VERSION
   spec.date          = '2019-05-25'
-  spec.authors       = ["Niusha Hadziomerovic"]
-  spec.email         = ["niusha.hadziomerovic@gmail.com"]
+  spec.authors       = ["Niusha H"]
+  spec.email         = ["hello@zenminded.biz"]
 
   spec.summary       = %q{"Demonstrating my ability to write concise, easy-to-read Object-Oriented Ruby code (e.g. good design patterns, objects, not hashes; separation of concerns, etc.)...  RegEx and the selectors used to parse scraped web page data are less important for this assignment."}
   spec.description   = %q{"Demonstrating my ability to write concise, easy-to-read Object-Oriented Ruby code (e.g. good design patterns, objects, not hashes; separation of concerns, etc.)...  RegEx and the selectors used to parse scraped web page data are less important for this assignment.".}
