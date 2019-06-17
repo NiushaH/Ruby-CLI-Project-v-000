@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-require "bundler/setup"
-require "villagetopia"
+
+require './config/environment'
 
 VillagetopiaCLI::CLI.new.call

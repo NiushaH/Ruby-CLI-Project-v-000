@@ -1,0 +1,3 @@
+class TwiceExceptionalProgram
+
+end

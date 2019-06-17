@@ -1,2 +1,7 @@
 require_relative "./villagetopia/version"
 require_relative "./app/cli"
+require_relative "./app/family_type"
+require_relative "./app/children_learning_profile"
+require_relative "./app/family_profile"
+require_relative "./app/school"
+require_relative "./app/your_villagetopia"
