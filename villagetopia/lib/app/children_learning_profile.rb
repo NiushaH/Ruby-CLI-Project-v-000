@@ -1,7 +1,8 @@
 class VillagetopiaCLI::ChildrenLearningProfile
-attr_accessor :children_learning_profile_combo, :name
+attr_accessor :children_learning_profile, :name
 
   @@types_of_learning_needs = []
+  @@user_input_of_learning_differences = []
   @@children_learning_profile = []
 
   def self.types_of_learning_needs
@@ -12,19 +13,19 @@ attr_accessor :children_learning_profile_combo, :name
     #   4. Twice Exceptional
     # DOC
 
-    types_of_learning_needs_1 = self.new
-    types_of_learning_needs_1.name = "Asperger's"
+    types_of_learning_needs[0] = self.new
+    types_of_learning_needs[0].name = "Asperger's"
 
-    types_of_learning_needs_2 = self.new
-    types_of_learning_needs_2.name = "Dyslexia"
+    types_of_learning_needs[1] = self.new
+    types_of_learning_needs[1].name = "Dyslexia"
 
-    types_of_learning_needs_3 = self.new
-    types_of_learning_needs_3.name = "Gifted"
+    types_of_learning_needs[2] = self.new
+    types_of_learning_needs[2].name = "Gifted"
 
-    types_of_learning_needs_4 = self.new
-    types_of_learning_needs_4.name = "Twice Exceptional"
+    types_of_learning_needs[3] = self.new
+    types_of_learning_needs[3].name = "Twice Exceptional"
 
-    [types_of_learning_needs_1, types_of_learning_needs_2, types_of_learning_needs_3, types_of_learning_needs_4]
+    types_of_learning_needs = [types_of_learning_needs_1, types_of_learning_needs[1], types_of_learning_needs[2], types_of_learning_needs[3]]
 
     # save_types_of_learning_needs(name)
   end
@@ -54,55 +55,33 @@ attr_accessor :children_learning_profile_combo, :name
     children_learning_profile_list
 
     input = nil
-    while input.to_s != "exit" || input.to_s != "help" || input.to_s != "list"
+    while input.to_s != "exit" || input.to_s != "help" || input.to_s != "list"  || input != "next" || input.to_i != 5 || input.to_i != 0
     input = gets.strip.downcase
 
-    get_all_familys_childrens_learning_profile
+    # self.get_all_familys_childrens_learning_profile
 
-        if input.to_i >= self.count
+        if input.to_i < 5 || input.to_i > 0
+          @@user_input_of_learning_differences << input.to_i if !@@user_input_of_learning_differences.include?(input.to_i)
+            puts "We have stored the #{corresponding types_of_learning_needs.name with the index number input} learning difference in your family profile.  Are there any other learning support programs that would benefit your child(ren)'s education?  If not, please type 'next'.".scan(/(.{1,60})(?:\s|$)/m)
+            puts "Are there any other learning support programs that would benefit your child(ren)'s education?  If not, please type 'next'."
+
+        elsif input.to_i >= self.count
             puts "Not sure what you want, please type list, help, or exit."
             puts "Currently, the following are the only #{self.count} educational program support options in Villagetopia."
             menu_children_learning_profile
 
-        elsif input.to_s == "help"  || input.to_s == "list"
+        elsif input.to_s == "next" || input.to_s == "Next"
+            puts "Based upon your entries, we have noted that your children could use support with the following learning areas:"
+            @user_input_of_learning_differences.each do |types_of_learning_needs|
+    puts "* #{types_of_learning_needs.name}"
+    end
+
+        elsif input.to_s == "help" || input.to_s == "list"
             puts "For Villagetopia results to be the most relevant, please help us understand your children's educational needs."
             menu_children_learning_profile
         else
         end
-    end
-  end
-
-  def get_all_familys_childrens_learning_profile(input)
-    input = nil
-
-    while input.to_s != "exit"
-    input = gets.strip.downcase
-
-        if input.to_i == 1 || input.to_i == 2 || input.to_i == 3 || input.to_i == 4
-        save_children_needs(input.to_i)
-        puts "Are there any other learning support programs that would benefit your child(ren)'s education?  If not, please enter #{types_of_learning_needs.count + 1}."
-        children_learning_profile_list
-          if input.to_i == 5
-          puts "We will look for places which have #{family_type} and #{children_learning_profile}."
-          elsif input.to_i == 1 || input.to_i == 2 || input.to_i == 3 || input.to_i == 4
-          save_children_needs(input.to_i)
-          puts "Are there any other learning differences apparent in your child(ren)?  If not, please enter 5."
-          children_learning_profile_list
-            if input.to_i == 5
-            puts "We will look for places which have #{family_type} and #{children_learning_profile}."
-            elsif input.to_i == 1 || input.to_i == 2 || input.to_i == 3 || input.to_i == 4
-            save_children_needs(input.to_i)
-            puts "Are there any other learning differences apparent in your child(ren)?  If not, please enter 5."
-            children_learning_profile_list
-              if input.to_i == 5
-              puts "We will look for places which have #{family_type} and #{children_learning_profile}."
-              elsif input.to_i == 1 || input.to_i == 2 || input.to_i == 3 || input.to_i == 4
-              save_children_needs(input.to_i)
-              else
-              end
-            end
-          end
-        end
+        binding.pry
     end
   end
 
@@ -110,8 +89,43 @@ attr_accessor :children_learning_profile_combo, :name
     puts "Please contact us with any additional suggestions and/or comments."
   end
 
-  def self.save_children_needs(input)
-    @@children_learning_profile << input
+  def assign_children_learning_profiles
+    sorted_array_of_learning_differences = @@user_input_of_learning_differences.sort.uniq
+
+      if sorted_array_of_learning_differences == [1]
+        @@children_learning_profile << types_of_learning_needs[0]
+      elsif sorted_array_of_learning_differences == [1,2]
+        @@children_learning_profile << types_of_learning_needs[0] && types_of_learning_needs[1]
+      elsif sorted_array_of_learning_differences == [1,3]
+        @@children_learning_profile << types_of_learning_needs[0] && types_of_learning_needs[2]
+      elsif sorted_array_of_learning_differences == [1,4]
+        @@children_learning_profile << types_of_learning_needs[0] && types_of_learning_needs[3]
+      elsif sorted_array_of_learning_differences == [2]
+        @@children_learning_profile << types_of_learning_needs[1]
+      elsif sorted_array_of_learning_differences == [2,3]
+        @@children_learning_profile << types_of_learning_needs[1] && types_of_learning_needs[2]
+      elsif sorted_array_of_learning_differences == [2,4]
+        @@children_learning_profile << types_of_learning_needs[1] && types_of_learning_needs[3]
+      elsif sorted_array_of_learning_differences == [3]
+        @@children_learning_profile << types_of_learning_needs[2]
+      elsif sorted_array_of_learning_differences == [3,4]
+        @@children_learning_profile << types_of_learning_needs[2] && types_of_learning_needs[3]
+      elsif sorted_array_of_learning_differences == [4]
+        @@children_learning_profile << types_of_learning_needs[3]
+      elsif sorted_array_of_learning_differences == [1,2,3]
+        @@children_learning_profile << types_of_learning_needs_1 && types_of_learning_needs[1] && types_of_learning_needs[2]
+      elsif sorted_array_of_learning_differences == [2,3,4]
+        @@children_learning_profile << types_of_learning_needs[1] && types_of_learning_needs[2] && types_of_learning_needs[3]
+      elsif sorted_array_of_learning_differences == [1,3,4]
+        @@children_learning_profile << types_of_learning_needs_1 && types_of_learning_needs[2] && types_of_learning_needs[3]
+      elsif sorted_array_of_learning_differences == [1,2,4]
+        @@children_learning_profile << types_of_learning_needs_1 && types_of_learning_needs[1] && types_of_learning_needs[3]
+      elsif sorted_array_of_learning_differences == [1,2,3,4]
+        @@children_learning_profile << types_of_learning_needs_1 && types_of_learning_needs[1] && types_of_learning_needs[2] && types_of_learning_needs[3]
+      else input == nil
+        puts "There is insufficient family profile input to compile Villagetopia list."
+      end
   end
+
 
 end

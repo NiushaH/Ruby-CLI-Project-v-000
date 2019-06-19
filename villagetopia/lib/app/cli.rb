@@ -1,35 +1,49 @@
 
 class VillagetopiaCLI::CLI
+attr_accessor :user_name
 
-
-FAMILY_PROFILE = {family_type: 1 || 2, children_learning_profile: "1of16variablespossiblecombos"}
 
   def call
     greeting
-    user_initialize
-
-    # your_villagetopia
+    create_user
+    VillagetopiaCLI::FamilyType.menu_family_type
+    binding.pry
+    VillagetopiaCLI::ChildrenLearningProfile.menu_children_learning_profile
+    # confirm user's family profile
+    # run program to find best place matches
+    # see list of your_villagetopia
     goodbye
   end
 
   def greeting
-    puts "We're so glad you're here.  We want to support you with information so you can find your next best place to live!".scan(/(.{1,60})(?:\s|$)/m)
+    puts "We're so glad you're here.  We want to support you with information so you can find your next best place to live!
+    ".scan(/(.{1,60})(?:\s|$)/m)
   end
 
-  def user_initialize(family_type = "1".to_i)
-    @family_type = VillagetopiaCLI::FamilyType.menu_family_type
-    #save family_type and children_learning_profile data to FAMILY_PROFILE
-    @children_learning_profile = children_learning_profile
-
-
+  def create_user
+    user_name(input = "")
+    VillagetopiaCLI::User.new(@user_name, @family_type, @children_learning_profile)
   end
 
+  def user_name(input)
+    @user_name = input
+    puts "Let's get better acquainted!  What's your name?"
+    input = gets.chomp
+    puts ""
+    puts ""
+    puts ""
+    puts "It's nice to meet you #{input}!  We are the team at Villagetopia.".scan(/(.{1,60})(?:\s|$)/m)
+    puts ""
+    puts ""
+    puts "We have a couple of questions for you and then we can wow you with data to help you narrow down the possibilities about where in the USA to live your best family life!".scan(/(.{1,60})(?:\s|$)/m)
+    @user_name << input
+  end
 
 
   def school_program_types
-    puts "What types of school program support(s) do your children need?
-    \n
-    If more than one type is needed, please type a comma between each corresponding number.  For example, if Asperger's, Dyslexia, and Twice Exceptional are needed, please enter 1, 2, 4 as your response.".scan(/(.{1,60})(?:\s|$)/m)
+    puts "What types of school program support(s) do your children need?"
+    puts ""
+    puts "If more than one type is needed, please type a comma between each corresponding number.  For example, if Asperger's, Dyslexia, and Twice Exceptional are needed, please enter 1, 2, 4 as your response.".scan(/(.{1,60})(?:\s|$)/m)
     puts <<-DOC.gsub /^\s*/, ''
       1. Asperger's
       2. Dyslexia
@@ -52,8 +66,10 @@ FAMILY_PROFILE = {family_type: 1 || 2, children_learning_profile: "1of16variable
   end
 
   def goodbye
-    puts "Please contact Villagetopia with any additional suggestions and/or comments."
+    puts "We hope you liked Villagetopia.  Please contact Villagetopia with any additional suggestions and/or comments."
   end
 
 end
 
+
+# VillagetopiaCLI::User.new("Mr. Rogers", 1, [1])
