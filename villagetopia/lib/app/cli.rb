@@ -20,6 +20,7 @@ attr_accessor :user_name
     new_user.learning_needs
     #run code to find user's best place based on new_user.confirm_family_profile
     new_user.confirm_family_profile
+
     # see list of your_villagetopia
     VillagetopiaCLI::CLI.goodbye
   end

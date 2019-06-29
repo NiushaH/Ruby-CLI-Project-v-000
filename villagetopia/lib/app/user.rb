@@ -1,5 +1,5 @@
 class VillagetopiaCLI::User
-attr_accessor :name, :family_type, :learning_needs_keys_user_input, :learning_needs_names_user_input, :children_learning_profile, :children_learning_profile_values
+attr_accessor :name, :family_type, :children_learning_profile, :children_learning_profile_values
 
 
   def family_structure
@@ -66,51 +66,61 @@ attr_accessor :name, :family_type, :learning_needs_keys_user_input, :learning_ne
     puts "\nPlease enter the corresponding number(s) from the above list for your child(ren)'s learning needs.  If there is more than one learning need, you will be given the option to add another.  Otherwise, please type 'done'.\n\n".scan(/(.{1,60})(?:\s|$)/m)
   end
 
-  def save_children_learning_profile(input_ln)
-    if input_ln == "done"
-    elsif input_ln.to_i == 1 || input_ln.to_i == 2 || input_ln.to_i == 3 || input_ln.to_i == 4
+  def pass_learning_needs_keys_values_to_profile(input_ln)
+    if input_ln.to_i == 1
       type_of_learning_hash_key = input_ln.to_i - 1
-      @learning_needs_keys_user_input.push(type_of_learning_hash_key)
-      @learning_needs_names_user_input.push(VillagetopiaCLI::CLI.types_of_learning.values[type_of_learning_hash_key])
-      puts "\nYour family profile now includes #{VillagetopiaCLI::CLI.types_of_learning.values[type_of_learning_hash_key]}."
+      @children_learning_profile.push(type_of_learning_hash_key)
+      @children_learning_profile_values.push(VillagetopiaCLI::CLI.types_of_learning.values[type_of_learning_hash_key])
+      @children_learning_profile.sort.uniq
+      @children_learning_profile_values.sort.uniq
+      puts "\nYour family profile now includes #{VillagetopiaCLI::CLI.types_of_learning.values[type_of_learning_hash_key]} learning needs.".scan(/(.{1,60})(?:\s|$)/m)
+
+    elsif input_ln.to_i == 2 || input_ln.to_i == 3 || input_ln.to_i == 4
+    type_of_learning_hash_key = input_ln.to_i - 1
+      @children_learning_profile.push(type_of_learning_hash_key)
+      @children_learning_profile_values.push(VillagetopiaCLI::CLI.types_of_learning.values[type_of_learning_hash_key])
+      @children_learning_profile.sort.uniq
+      @children_learning_profile_values.sort.uniq
+      puts "\nYour family profile now includes #{VillagetopiaCLI::CLI.types_of_learning.values[type_of_learning_hash_key].downcase} learning needs.".scan(/(.{1,60})(?:\s|$)/m)
     end
   end
 
   def learning_needs
     input_ln = ""
-    @learning_needs_keys_user_input = []
-    @learning_needs_names_user_input = []
+    @children_learning_profile = []
+    @children_learning_profile_values = []
 
-    until input_ln == "done" || input_ln == "'done'"
-      children_learning_needs_question
-      input_ln = gets.strip.downcase
-        # if input_ln == "help" || input_ln == "'help'"
-        #     puts "Currently the options are to enter a number or type 'done' or 'none'.  Otherwise, please feel free to contact Villagetopia.".scan(/(.{1,60})(?:\s|$)/m)
-        # elsif input_ln == "list" || input_ln == "'list'"
-        #     puts "Please enter a corresponding number that best describes your child(ren)'s learning need(s) or type 'done' or 'none'.".scan(/(.{1,60})(?:\s|$)/m)
-        # elsif input_ln == "none" || input_ln == "'none'"
-        #     puts "\n\nThank you for sharing information to create your family profile."
-        #     puts "You are a #{@family_type} looking for your best place to raise a family."
-        # elsif input_ln == "exit"
-        #     VillagetopiaCLI::CLI.goodbye
-        # elsif input_ln.to_i != Integer || input_ln != "help" || input_ln != "list" || input_ln != "none" || input_ln != "'help'" || input_ln != "'list'" || input_ln != "'none'"
-        #     puts "Please enter a corresponding number to your child(ren)'s learning need or type 'done', 'none', 'list'.'"
-        # else
-        # end
-      save_children_learning_profile(input_ln)
-    end
-# why does UNTIL lose all the info that was saved with #saved_children_learning_profile??? and become nil
+        until @children_learning_profile == [0, 1, 2, 3] || input_ln == "done" || input_ln == "none" do
+          children_learning_needs_question
+          input_ln = gets.strip.downcase
+
+            if input_ln.to_i == 1 || input_ln.to_i == 2 || input_ln.to_i == 3 || input_ln.to_i == 4
+            pass_learning_needs_keys_values_to_profile(input_ln)
+
+            elsif input_ln == "help" || input_ln == "'help'"
+            puts "Currently the options are to enter a number or type 'done' or 'none'.  Otherwise, please feel free to contact Villagetopia.".scan(/(.{1,60})(?:\s|$)/m)
+
+            elsif input_ln == "list" || input_ln == "'list'"
+            puts "Please enter a corresponding number that best describes your child(ren)'s learning need(s) or type 'done' or 'none'.".scan(/(.{1,60})(?:\s|$)/m)
+
+            elsif input_ln == "exit"
+            VillagetopiaCLI::CLI.goodbye
+            end
+        end
   end
 
-  def confirm_family_profile
-    @children_learning_profile = @learning_needs_keys_user_input.sort.uniq - [0]
-    @children_learning_profile_values = @learning_needs_names_user_input.sort.uniq
-    puts "\n\nThank you for sharing information to create your family profile."
-    puts "You are a #{@family_type} with the following learning needs:"
-    @children_learning_profile_values.each { |learning_need| puts "  * #{learning_needs}"}
-   # SOMEDAY: Add option here to change profile info??
-    puts "\n\nNow, Villagetopia will look through it's data to suggest places in the USA that offer resources and a community that could be your family's ideal Villagetopia.".scan(/(.{1,60})(?:\s|$)/m)
 
+  def confirm_family_profile
+    puts "\n\nThank you for sharing information to create your family profile."
+    puts "  You are a #{@family_type}."
+    if @children_learning_profile == nil
+      puts "  And, no child(ren)-related learning needs have been identified."
+    elsif @children_learning_profile.any?(Integer)
+      puts "  And, your family profile includes the following learning needs:"
+      @children_learning_profile_values.sort.each_with_index { |v, i| puts "    * #{v}"}
+      puts "\n\nNow, Villagetopia will look through it's data to suggest places in the USA that offer resources and a community that could be your family's ideal Villagetopia.".scan(/(.{1,60})(?:\s|$)/m)
+    end
+    # SOMEDAY: Add option here to change profile info??
   end
 
 end
