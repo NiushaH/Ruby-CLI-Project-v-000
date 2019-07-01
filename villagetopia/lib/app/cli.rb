@@ -23,9 +23,9 @@ attr_reader :family_type, :children_learning_profile
 
 
 
-    VillagetopiaCLI::AspergersProgram.scrape_aspergers_schools  
-    VillagetopiaCLI::DyslexiaProgram.scrape_dyslexia_schools    
-    # VillagetopiaCLI::GiftedProgram.scrape_gifted_schools
+    # VillagetopiaCLI::AspergersProgram.scrape_aspergers_schools
+    # VillagetopiaCLI::DyslexiaProgram.scrape_dyslexia_schools
+    VillagetopiaCLI::GiftedProgram.scrape_gifted_schools
     # VillagetopiaCLI::TwiceExceptionalProgram.scrape_twice_exceptional_schools
 
     #  # run code to find user's best place based on new_user.confirm_family_profile
