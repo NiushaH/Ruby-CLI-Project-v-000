@@ -2,6 +2,7 @@
 
 class VillagetopiaCLI::CLI
 attr_accessor :user_name
+attr_reader :family_type, :children_learning_profile
 
 
   def self.types_of_learning
@@ -16,13 +17,18 @@ attr_accessor :user_name
     new_user = VillagetopiaCLI::User.new
     new_user.user_name
     new_user.family_type
-    # need to fix IF LOOP on new_user.learning_needs method because its creating a nil
+    # Tell Dustin problem was in my #confirm_family_profile method where the block had an invalid iteration.  Fixed it and it works now.  :)
     new_user.learning_needs
-    #run code to find user's best place based on new_user.confirm_family_profile
-    new_user.confirm_family_profile
+    # find_best_place = VillagetopiaCLI::FindBestPlace.new(new_user)
 
+    
+    # VillagetopiaCLI::GiftedProgram.scrape_gifted_schools
+    VillagetopiaCLI::TwiceExceptionalProgram.scrape_twice_exceptional_schools
+
+binding.pry    
+    #  # run code to find user's best place based on new_user.confirm_family_profile
     # see list of your_villagetopia
-    VillagetopiaCLI::CLI.goodbye
+    # VillagetopiaCLI::CLI.goodbye
   end
 
   def greeting

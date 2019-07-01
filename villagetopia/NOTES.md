@@ -72,7 +72,7 @@ What website will you be scraping?
 Level 1 Autism/HfA Asperger's Schools: https://www.ourkids.net/aspergers-schools-usa.php
 Dyslexia Schools: https://www.dyslexia-reading-well.com/schools-for-dyslexia-united-states.html, private school list: https://www.ortonacademy.org/accreditation/dyslexia-in-schools/ or http://dyslexiahelp.umich.edu/answers/independent-schools, ed developer site for APIs: https://nces.ed.gov/ccd/schoolsearch/ or https://nces.ed.gov/ccd/elsi/
 Gifted Schools: Institute for Educational Advancement <a href: https://educationaladvancement.org/resource/schools>
-Twice Exceptional: ==== ???? ====
+Twice Exceptional: https://educationaladvancement.org/resource/schools/?_sft_school-type=twice-exceptional
 Best Places for Families: https://realestate.usnews.com/places/rankings/best-places-to-live
 Best Places for Single Parents: https://www.magnifymoney.com/blog/strategies-to-save/best-places-for-raising-a-family-as-a-single-parent/
 

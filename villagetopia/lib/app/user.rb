@@ -67,6 +67,7 @@ attr_accessor :name, :family_type, :children_learning_profile, :children_learnin
   end
 
   def pass_learning_needs_keys_values_to_profile(input_ln)
+#  Because Asperger's is capitalized, there is an if expression in this method
     if input_ln.to_i == 1
       type_of_learning_hash_key = input_ln.to_i - 1
       @children_learning_profile.push(type_of_learning_hash_key)
@@ -90,7 +91,7 @@ attr_accessor :name, :family_type, :children_learning_profile, :children_learnin
     @children_learning_profile = []
     @children_learning_profile_values = []
 
-        until @children_learning_profile == [0, 1, 2, 3] || input_ln == "done" || input_ln == "none" do
+        until @children_learning_profile == [0, 1, 2, 3] || input_ln == "done" || input_ln == "none" || input_ln == "exit" do
           children_learning_needs_question
           input_ln = gets.strip.downcase
 
@@ -102,11 +103,14 @@ attr_accessor :name, :family_type, :children_learning_profile, :children_learnin
 
             elsif input_ln == "list" || input_ln == "'list'"
             puts "Please enter a corresponding number that best describes your child(ren)'s learning need(s) or type 'done' or 'none'.".scan(/(.{1,60})(?:\s|$)/m)
-
-            elsif input_ln == "exit"
-            VillagetopiaCLI::CLI.goodbye
             end
+        confirm_family_profile
         end
+
+        if input_ln == "exit"
+          VillagetopiaCLI::CLI.goodbye
+        end
+
   end
 
 
@@ -118,7 +122,6 @@ attr_accessor :name, :family_type, :children_learning_profile, :children_learnin
     elsif @children_learning_profile.any?(Integer)
       puts "  And, your family profile includes the following learning needs:"
       @children_learning_profile_values.sort.each_with_index { |v, i| puts "    * #{v}"}
-      puts "\n\nNow, Villagetopia will look through it's data to suggest places in the USA that offer resources and a community that could be your family's ideal Villagetopia.".scan(/(.{1,60})(?:\s|$)/m)
     end
     # SOMEDAY: Add option here to change profile info??
   end

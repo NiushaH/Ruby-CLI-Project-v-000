@@ -1,3 +1,7 @@
 require "bundler/setup"
+require "open-uri"
+require "nokogiri"
+require "httparty"
+require "awesome_print"
 require "pry"
 require "villagetopia"
