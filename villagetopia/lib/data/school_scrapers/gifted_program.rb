@@ -23,27 +23,27 @@ attr_accessor :name, :description, :more_info_url, :email_address, :phone_number
         gifted_school.name = school.search('h2.search_link').text
         gifted_school.description = school.css('p').text
         gifted_school.more_info_url = school.css('a')[0].attribute('href').value
-    # FIX so that "Email address: " isn't part of string
-        gifted_school.email_address = Nokogiri::HTML(open(gifted_school.more_info_url)).css('div.contact-details').children[4]
-    # # FIX so that "Phone: " isn't part of string
-        gifted_school.phone_number = Nokogiri::HTML(open(gifted_school.more_info_url)).css('div.contact-details').children[2].text
         gifted_school.city = "unknown"  #ideal scraped page would include city name
         gifted_school.state = school.css('span')[3].children[1].text
         gifted_school.type = school.css('span')[2].children.text if school.css('span')[2].children.text.include?("Online")
         gifted_school.learning_profile = "Gifted"
-      # TO DO: separate the text scraped of each children element with a comma instead of to_sentence output #join results in NoMethodError, undefined method for String
-        gifted_school.levels = school.css('span')[1].children.children.text
-        lvls = gifted_school.levels
-      #  .each doesn't work with line 41
-      #  .scan doesn't work on line 42
-      #  HOW TO FIX so that either #levels or #grades take only the string data as it's own element "K-5", "6-8" instead of "6-8K-5"???
+        gifted_school.levels = school.css('span')[1].children.children
         gifted_school.grades = []
-            # lvls.each do |text|
-            # gifted_school.grades << text.scan("...")
-            # end
+            gifted_school.levels.each do |el|
+              gifted_school.grades << el.text
+            end
         gifted_school.webpage = school.css('a')[1].attribute('href').value
-      binding.pry
       end
     end
   end
+
+#   def self.scrape_gifted_details(gifted_school.more_info_url)
+#     more_info_url = gifted_school.more_info_url
+#     more_info_url = "https://educationaladvancement.org/grc/academy-for-advanced-and-creative-learning/"
+
+#     gifted_contact_info = Nokogiri::HTML(open(more_info_url)).css('div.contact-details')
+#         gifted_school.email_address = gifted_contact_info.children[4].text.gsub("Email: ", "")
+#         gifted_school.phone_number = gifted_contact_info.children[2].text.gsub("Phone: ", "")
+#   end
+
 end

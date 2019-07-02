@@ -1,8 +1,8 @@
-#separation of concerns -- where should code be
+#separation of concerns -- ask self where should code be
 
 class VillagetopiaCLI::CLI
-attr_accessor :user_name
-attr_reader :family_type, :children_learning_profile
+attr_accessor
+attr_reader :user_name, :family_type, :children_learning_profile
 
 
   def self.types_of_learning
@@ -20,17 +20,21 @@ attr_reader :family_type, :children_learning_profile
     # # Tell Dustin problem was in my #confirm_family_profile method where the block had an invalid iteration.  Fixed it and it works now.  :)
     # new_user.learning_needs
     # find_best_place = VillagetopiaCLI::FindBestPlace.new(new_user)
-
-
+    # *** WRITE A NOTE ABOUT WAITING FOR LOADING TIME??? ***
+    VillagetopiaCLI::SingleParent.scrape_single_caretaker
 
     # VillagetopiaCLI::AspergersProgram.scrape_aspergers_schools
+    # VillagetopiaCLI::AspergersProgram.scrape_aspergers_details(aspergers_school.more_info_url)
     # VillagetopiaCLI::DyslexiaProgram.scrape_dyslexia_schools
-    VillagetopiaCLI::GiftedProgram.scrape_gifted_schools
+    # VillagetopiaCLI::GiftedProgram.scrape_gifted_schools
     # VillagetopiaCLI::TwiceExceptionalProgram.scrape_twice_exceptional_schools
 
     #  # run code to find user's best place based on new_user.confirm_family_profile
     # see list of your_villagetopia
-    # VillagetopiaCLI::CLI.goodbye
+    # Want to know more about a school or location???
+#    VillagetopiaCLI::GiftedProgram.scrape_gifted_details(gifted_school)
+
+    VillagetopiaCLI::CLI.goodbye
   end
 
   def greeting
