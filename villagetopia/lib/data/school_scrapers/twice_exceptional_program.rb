@@ -8,7 +8,7 @@ attr_accessor :name, :description, :more_info_url, :email_address, :phone_number
 
     doc = Nokogiri::HTML(open(url))
 
-    school_listing = doc.search('/html/body/div[2]/div/div/div/div[1]/div/div')  #one section of data 
+    school_listing = doc.search('/html/body/div[2]/div/div/div/div[1]/div/div')  #one section of data
     schools = school_listing.css('article')  #selecting one container (articles id tags) that contains school info
 
       schools.each do |school|
@@ -19,8 +19,8 @@ attr_accessor :name, :description, :more_info_url, :email_address, :phone_number
         te_school.more_info_url = school.css('a')[0].attribute('href').value
         te_school.city = "unknown"  #ideal scraped page would include city name
         te_school.state = school.css('span')[4].children[1].text
-        te_school.type = school.css('span')[2].children.text if school.css('span')[2].children.text.include?("Online")
-        te_school.learning_profile = "Twice Exceptional"
+        te_school.type = school.css('span')[2].children.text if school.css('span')[2].children.text.include?("Online") end
+        te_school.learning_profile = VillagetopiaCLI::School.types_of_learning[4]
         te_school.levels = school.css('span')[1].children.children.text
         te_school.grades = []
             te_school.levels.each do |el|
@@ -29,5 +29,5 @@ attr_accessor :name, :description, :more_info_url, :email_address, :phone_number
         te_school.webpage = school.css('a')[1].attribute('href').value
       end
     end
-  end    
-end
+#   end
+# end

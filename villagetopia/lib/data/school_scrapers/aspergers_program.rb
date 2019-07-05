@@ -29,9 +29,10 @@ attr_accessor :name, :description, :more_info_url, :email_address, :phone_number
           aspergers_school.city = doc.search("div.grid-x").css("li")[0].text.gsub(",", "").split(" ").first.lstrip
           aspergers_school.state = doc.search("div.grid-x").css("li")[0].text.gsub(",", "").split(" ").last.gsub(/\(.*\)/, "")
           aspergers_school.type = doc.search("div.grid-x").css("li")[2].text.gsub(/\(.*\)/, "")
-          aspergers_school.learning_profile = "Asperger's"
-          aspergers_school.grades = doc.search("div.grid-x").css("li")[1].text
 
+          # TODO: ?? how to write this variable to be equal to the key that has the word "Asperger's"
+          aspergers_school.learning_profile = VillagetopiaCLI::School.types_of_learning[1]
+          aspergers_school.grades = doc.search("div.grid-x").css("li")[1].text
         end
       end
   end
@@ -40,7 +41,7 @@ attr_accessor :name, :description, :more_info_url, :email_address, :phone_number
 
   def self.scrape_aspergers_details(aspergers_school)
     aspergers_school.more_info_url
-    
+
     # doc_url = aspergers_school.more_info_url
     # doc_url = "https://www.ourkids.net/school/chamberlain-international-school-middleboro/632"
     doc_more = Nokogiri::HTML(open(doc_url))

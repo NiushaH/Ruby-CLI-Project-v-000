@@ -17,7 +17,9 @@ attr_accessor :name, :description, :more_info_url, :email_address, :phone_number
         dyslexia_school.city = school.search('div.fusion-text')[0].text.split("\n")[3].gsub("(^\\w+)\\s.+", "").rpartition(",").first
         dyslexia_school.state = school.search('div.fusion-text')[0].text.split("\n")[3].gsub("(^\\w+)\\s.+", "").rpartition(",")[2].strip.rpartition(" ")[0]
         dyslexia_school.type = "Onsite", "Private"
-        dyslexia_school.learning_profile = "Dyslexia"
+
+        # TODO: ?? how to write this variable to be equal to the key that has the word "Dyslexia"
+        dyslexia_school.learning_profile = VillagetopiaCLI::School.types_of_learning[2]
         dyslexia_school.levels = ""
         dyslexia_school.grades = []
         dyslexia_school.webpage = school.search('div.fusion-text').css('a').attribute('href').value

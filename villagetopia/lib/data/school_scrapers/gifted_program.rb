@@ -26,7 +26,7 @@ attr_accessor :name, :description, :more_info_url, :email_address, :phone_number
         gifted_school.city = "unknown"  #ideal scraped page would include city name
         gifted_school.state = school.css('span')[3].children[1].text
         gifted_school.type = school.css('span')[2].children.text if school.css('span')[2].children.text.include?("Online")
-        gifted_school.learning_profile = "Gifted"
+        gifted_school.learning_profile = VillagetopiaCLI::School.types_of_learning[3]
         gifted_school.levels = school.css('span')[1].children.children
         gifted_school.grades = []
             gifted_school.levels.each do |el|

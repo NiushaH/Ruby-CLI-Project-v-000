@@ -60,29 +60,29 @@ attr_accessor :name, :family_type, :children_learning_profile, :children_learnin
 
   def children_learning_needs_question
     puts "\nPlease share with us your child(ren)'s learning needs.  Currently Villagetopia has data about schools which support the following learning needs:\n\n".scan(/(.{1,60})(?:\s|$)/m)
-    VillagetopiaCLI::CLI.types_of_learning.each { |key, learning_needs| puts "#{key}. #{learning_needs}"}
+    VillagetopiaCLI::School.types_of_learning.each { |key, learning_needs| puts "#{key}. #{learning_needs}"}
     puts "** Type 'done' if all your child(ren)'s learning needs have been entered."
     puts "** Type 'none' if your child(ren) do not have any of the above learning needs."
     puts "\nPlease enter the corresponding number(s) from the above list for your child(ren)'s learning needs.  If there is more than one learning need, you will be given the option to add another.  Otherwise, please type 'done'.\n\n".scan(/(.{1,60})(?:\s|$)/m)
   end
 
   def pass_learning_needs_keys_values_to_profile(input_ln)
-#  Because Asperger's is capitalized, there is an if expression in this method
+    # Because Asperger's is capitalized, there is an if expression in this method so puts is grammatically correct
     if input_ln.to_i == 1
       type_of_learning_hash_key = input_ln.to_i - 1
       @children_learning_profile.push(type_of_learning_hash_key)
-      @children_learning_profile_values.push(VillagetopiaCLI::CLI.types_of_learning.values[type_of_learning_hash_key])
+      @children_learning_profile_values.push(VillagetopiaCLI::School.types_of_learning.values[type_of_learning_hash_key])
       @children_learning_profile.sort.uniq
       @children_learning_profile_values.sort.uniq
-      puts "\nYour family profile now includes #{VillagetopiaCLI::CLI.types_of_learning.values[type_of_learning_hash_key]} learning needs.".scan(/(.{1,60})(?:\s|$)/m)
+      puts "\nYour family profile now includes #{VillagetopiaCLI::School.types_of_learning.values[type_of_learning_hash_key]} learning needs.".scan(/(.{1,60})(?:\s|$)/m)
 
     elsif input_ln.to_i == 2 || input_ln.to_i == 3 || input_ln.to_i == 4
     type_of_learning_hash_key = input_ln.to_i - 1
       @children_learning_profile.push(type_of_learning_hash_key)
-      @children_learning_profile_values.push(VillagetopiaCLI::CLI.types_of_learning.values[type_of_learning_hash_key])
+      @children_learning_profile_values.push(VillagetopiaCLI::School.types_of_learning.values[type_of_learning_hash_key])
       @children_learning_profile.sort.uniq
       @children_learning_profile_values.sort.uniq
-      puts "\nYour family profile now includes #{VillagetopiaCLI::CLI.types_of_learning.values[type_of_learning_hash_key].downcase} learning needs.".scan(/(.{1,60})(?:\s|$)/m)
+      puts "\nYour family profile now includes #{VillagetopiaCLI::School.types_of_learning.values[type_of_learning_hash_key].downcase} learning needs.".scan(/(.{1,60})(?:\s|$)/m)
     end
   end
 
@@ -104,13 +104,13 @@ attr_accessor :name, :family_type, :children_learning_profile, :children_learnin
             elsif input_ln == "list" || input_ln == "'list'"
             puts "Please enter a corresponding number that best describes your child(ren)'s learning need(s) or type 'done' or 'none'.".scan(/(.{1,60})(?:\s|$)/m)
             end
-        confirm_family_profile
         end
 
         if input_ln == "exit"
           VillagetopiaCLI::CLI.goodbye
         end
 
+    confirm_family_profile
   end
 
 

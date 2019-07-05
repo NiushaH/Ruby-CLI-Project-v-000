@@ -6,7 +6,7 @@ attr_accessor :name, :description, :more_info_url, :email_address, :phone_number
   def initialize
     @@all << self
   end
-  
+
   def self.all
    @@all
   end
@@ -14,6 +14,13 @@ attr_accessor :name, :description, :more_info_url, :email_address, :phone_number
   def self.type
     { 1 => "Onsite",
       2 => "Online"}
+  end
+
+  def self.types_of_learning
+    { 1 => "Asperger's",
+      2 => "Dyslexia",
+      3 => "Gifted",
+      4 => "Twice Exceptional" }
   end
 
   def self.grades

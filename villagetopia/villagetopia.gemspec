@@ -47,7 +47,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "awesome_print"
   spec.add_development_dependency "pry"
 
-  spec.add_dependency "colorize"
+  spec.add_dependency "rainbow"
   spec.add_dependency "httparty"
   spec.add_dependency "nokogiri"
 end

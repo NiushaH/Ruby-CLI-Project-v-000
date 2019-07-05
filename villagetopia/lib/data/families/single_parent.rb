@@ -1,27 +1,26 @@
 class VillagetopiaCLI::SingleParent
-attr_accessor :name, :description, :rank, :family_type, :city, :state, :city_webpage
+attr_accessor :description_of_place, :rank, :family_type, :city, :state, :city_webpage
 
 
-  def self.scrape_single_caretaker
-    url = "https://havenlife.com/blog/best-cities-for-working-moms/"
+  def self.scrape_single_parent
+    url = "https://wallethub.com/edu/best-cities-for-single-moms/19772/"
     doc = Nokogiri::HTML(open(url))
 
-    single_caretaker = doc.search("div.article-content")  #one container of 20 items of data
+    best_places_for_single_parents = doc.search("div.cardhub-edu-table-div.sortable-main-1")  #one container of 20 items of data
 
-    single_caretaker.each do |best_place|
-      best_place = VillagetopiaCLI::FindBestPlace.new
+    best_places_for_single_parents.each do |place|
+      # instantiate an object and set its attributes
+      best_place_for_single_parents = VillagetopiaCLI::Place.new
 
 binding.pry
+      best_place_for_single_parents.description_of_place = ""
+      best_place_for_single_parents.rank = place.search.css.text
 
-      single_caretaker.name = best_place.search("div.link-content h3").css("").text
-      single_caretaker.description = 
-      single_caretaker.rank = 
-      single_caretaker.family_type = 
-      single_caretaker.city = 
-      single_caretaker.state = 
-      single_caretaker.city_webpage = 
-
+      # TODO: ?? how to write this variable to be equal to the key that has the word "single parent"
+      best_place_for_single_parents.family_type = VillagetopiaCLI::User.family_structure[1]
+      best_place_for_single_parents.city = place.search.css.text
+      best_place_for_single_parents.state = place.search.css.text
+      best_place_for_single_parents.city_webpage = ""
       end
   end
-
 end

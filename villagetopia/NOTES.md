@@ -44,7 +44,7 @@ profile.
 If single with gifted kids, take the best places to live for singles list
    and run through gifted schools list to see if any matches.
 If single with gifted and dyslexic kids, take the best places to live for
-   singles list and run  through gifted schools list and dyslexic schools
+   singles list and run through gifted schools list and dyslexic schools
    list to see if any matches.
 If single with dyslexic kids, take the best places to live for singles list
    and run through dyslexic schools list to see if any matches.
@@ -64,17 +64,18 @@ If no matches of above selections, run through list again using Google's
    Distance Matrix API and output those best places locations with schools
    less than one hour driving time distance from each other and output those.
 
+
 ============================================
     Responses to the best of my ability:
 ============================================
 
 What website will you be scraping?
 Level 1 Autism/HfA Asperger's Schools: https://www.ourkids.net/aspergers-schools-usa.php
-Dyslexia Schools: https://www.dyslexia-reading-well.com/schools-for-dyslexia-united-states.html, private school list: https://www.ortonacademy.org/accreditation/dyslexia-in-schools/ or http://dyslexiahelp.umich.edu/answers/independent-schools, ed developer site for APIs: https://nces.ed.gov/ccd/schoolsearch/ or https://nces.ed.gov/ccd/elsi/
-Gifted Schools: Institute for Educational Advancement <a href: https://educationaladvancement.org/resource/schools>
+Dyslexia Schools: https://www.ortonacademy.org/accreditation/dyslexia-in-schools/, ed developer site for APIs: https://nces.ed.gov/ccd/schoolsearch/ or https://nces.ed.gov/ccd/elsi/
+Gifted Schools: Institute for Educational Advancement https://educationaladvancement.org/resource/schools/?_sft_school-type=gifted
 Twice Exceptional: https://educationaladvancement.org/resource/schools/?_sft_school-type=twice-exceptional
 Best Places for Families: https://realestate.usnews.com/places/rankings/best-places-to-live
-Best Places for Single Parents: https://www.magnifymoney.com/blog/strategies-to-save/best-places-for-raising-a-family-as-a-single-parent/
+Best Places for Single Parents: https://wallethub.com/edu/best-cities-for-single-moms/19772/
 
 
 What will you need to do with the data you return from scraping?
@@ -87,7 +88,7 @@ Places
 What will be the flow of displaying data for your application. ex How will your CLI portion work.
 * Ask the user if they are a one or two parent family.
 * Ask the user what learning differences their child has (level 1 autism/asperger's, dyslexia, gifted).
-* Take data from 6 sites (a 2e directory of schools, a gifted schools directory, a dyslexia schools directory, a best places for families, a best places for single parents, a best places for entrepreneurs) and then run code that will:
+* Stretch Goal: Take data from 6 sites (a 2e directory of schools, a gifted schools directory, a dyslexia schools directory, a best places for families, a best places for single parents, a best places for entrepreneurs) and then run code that will:
            - compare locations of the schools with best places list user identified with, and
            - any that are within 1 hour driving distance of each other will be grouped into a set, and
            - the results will output a list of metropolitan areas that have schools for family's makeup to give a list of possible good places for them to consider relocating.
