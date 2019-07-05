@@ -1,8 +1,0 @@
-require "bundler/setup"
-require "open-uri"
-require "nokogiri"
-require "httparty"
-require "pry"
-require "rainbow"
-require "pp"
-require "villagetopia"
