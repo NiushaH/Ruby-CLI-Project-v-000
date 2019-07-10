@@ -52,7 +52,7 @@ class GiftedSchoolsCLIProject::CLI
     input = ""
     display_schools_question
     input = gets.strip.to_i
-    
+
       until input.to_i.between?(1, 2)
         display_schools_question
         input = gets.strip.to_i
