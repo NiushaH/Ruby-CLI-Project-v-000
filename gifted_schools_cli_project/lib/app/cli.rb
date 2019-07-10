@@ -5,6 +5,8 @@ class GiftedSchoolsCLIProject::CLI
     new_user = GiftedSchoolsCLIProject::User.new
     new_user.user_name
     new_user.learning_needs
+    # fake_data_set = GiftedSchoolsCLIProject::DataFromScraper.new
+    # GiftedSchoolsCLIProject::DataFromScraper.fake_data
     GiftedSchoolsCLIProject::Scraper.scrape_gifted_schools
     GiftedSchoolsCLIProject::School.ask_how_to_display_gifted_schools
     goodbye
