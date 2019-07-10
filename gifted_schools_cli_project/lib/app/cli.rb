@@ -53,9 +53,9 @@ class GiftedSchoolsCLIProject::CLI
     display_schools_question
     input = gets.strip.to_i
 
-      until input.to_i.between?(1, 2)
-        display_schools_question
-        input = gets.strip.to_i
+      # until input.to_i.between?(1, 2)
+        # display_schools_question
+        # input = gets.strip.to_i
           if input.to_i == 1
             view = "by_name"
             display_schools(view)
@@ -63,7 +63,7 @@ class GiftedSchoolsCLIProject::CLI
             view = "by_state"
             display_schools(view)
           end
-      end
+      # end
   end
 
   def show_school_contact_info(school_chosen_for_detailed_view)
