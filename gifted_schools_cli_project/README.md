@@ -1,4 +1,4 @@
-# GiftedSchoolsCliProject
+# GiftedSchoolsCLIProject
 
 Show a list of schools and then offer the user specific contact information so they may reach out or learn more about the school
 
