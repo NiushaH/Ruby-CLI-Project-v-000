@@ -27,8 +27,8 @@ attr_accessor :name, :description, :more_info_url, :location, :email_address, :p
         gifted_school.description = school.css('div p').text
         gifted_school.more_info_url = school.css('a')[0].attribute('href').value
         gifted_school.webpage = school.css('a')[1].attribute('href').value
+        gifted_school.location = "Onsite" #why is this writing false instead of "Onsite"
         gifted_school.location = "Online" if gifted_school.location = school.css('div.entry-meta span').last.text.include?("Online")
-        gifted_school.location = "Onsite"
         gifted_school.type = school.css('span')[2].children.text.gsub("School Types: ", "")
 
       #  TODO: Perfect STATE scrape with .scan(/[A-Z][a-z]+/) and #join method to include all states (including DC and states with two words)

@@ -3,6 +3,58 @@
 =================
 This Gifted Schools CLI Project is a stepping stone to a more complex application that I would like to build called Villagetopia.
 
+
+==========================================
+    LIST OF METHODS DEFINED IN CLASSES
+==========================================
+  GiftedSchoolsCLIProject::CLI
+    :ask_how_to_display_gifted_schools,
+    :ask_if_want_school_contact_info,
+    :ask_user_which_state_schools_to_see,
+    :assign_learning_needs,
+    :assign_user_name,
+    :confirm_user_profile,
+    :continue_app,
+    :continue_with_questions_or_exit,
+    :display_schools,
+    :display_schools_by_US_state,
+    :display_schools_by_name,
+    :display_schools_question,
+    :greeting,
+    :list_chosen_state_list_of_schools,
+    :list_schools_alphabetically_by_US_state,
+    :list_schools_alphabetically_by_name,
+    :school_details,
+    :school_info,
+    :show_detailed_contact_info,
+    :show_school_contact_info,
+    :state_school_detailed_view,
+    :validate_continue_input,
+    :validate_display_schools_question,
+    :validate_gifted_children_input,
+    :validate_school_contact_question,
+    :validate_state_school_input,
+    :validate_users_state_choice
+
+  GiftedSchoolsCLIProject::Scraper
+    :scrape_gifted_schools,
+    :scrape_gifted_details
+
+  GiftedSchoolsCLIProject::School
+    :city, 
+    :description, 
+    :email_address, 
+    :grades, 
+    :learning_profile, 
+    :levels, 
+    :more_info_url, 
+    :name, 
+    :phone_number, 
+    :state, 
+    :type, 
+    :webpage
+
+
 =========================
     PRE-CLI CHECKLIST
 =========================

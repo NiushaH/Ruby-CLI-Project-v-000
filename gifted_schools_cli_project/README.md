@@ -1,26 +1,16 @@
 # GiftedSchoolsCLIProject
 
-Show a list of schools and then offer the user specific contact information so they may reach out or learn more about the school
+Show a list of schools and then offer the user specific contact information so they may reach out or learn more about the school.
 
-## Installation
+This CLI app is a skeleton project to scrape, organize and access data about schools.  The next step is to scrape other school and best places directories and then triangulate the data to best deliver the data to a user/family and equip them with information based on recent data.
 
-Add this line to your application's Gemfile:
 
-```ruby
-gem 'gifted_schools_cli_project'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install gifted_schools_cli_project
+<!-- ## Installation
+add this info if I later choose to upload it as a Ruby gem -->
 
 ## Usage
 
-TODO: Write usage instructions here
+Clone this repository and run the executable from the bin folder using ruby ./bin/gifted_schools_cli_project.
 
 ## Development
 
