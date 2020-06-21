@@ -42,7 +42,7 @@ DEPENDENCIES
   gifted_schools_cli_project!
   pp
   pry
-  rake (~> 10.0)
+  rake (~> 13.0)
   rspec (~> 3.0)
 
 BUNDLED WITH
