@@ -6,7 +6,7 @@ Gem::Specification.new do |spec|
   spec.name          = "gifted_schools_cli_project"
   spec.version       = GiftedSchoolsCLIProject::VERSION
   spec.authors       = ["Niusha H"]
-  spec.email         = ["hello@solomomliving.com"]
+  spec.email         = ["hello@embarkmoms.com"]
 
   spec.summary       = %q{Show a list of schools and then offer the user specific contact information so they may reach out or learn more about the school.}
   spec.description   = %q{This Gifted Schools CLI Project is a stepping stone to a more complex application that I would like to build called Villagetopia.}
