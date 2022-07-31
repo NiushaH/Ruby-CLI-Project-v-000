@@ -1,25 +1,21 @@
-The Journey of 625 Hours Begins One Step
+Mastering coding skills
 
-Enrollment
-How I Showed Up at Flatiron School’s Remote Online Web Developer Program
+Mastering coding skills is all about learning a tool that will allow me to contribute solutions that make people’s lives easier.
 
-Circumstance & Journey
-Life has all kinds of twists and turns. Most recently, I realized that I want to play to my strengths in my career and so I took the time over a couple of months to take an inventory, rally a support group, reach out for resources within my community at the library and beyond, and looked within to see what kind of skillset would enable me to live and reach the success and life I want to build. This helped me commit and feel good about the choices I was about to make.
+The beauty of code is that we can create some of the things we wished existed. Wishing that something existed is how dreams are born. I dream of an app that helps families find their best place to plant roots by triangulating data about places and schools so they can live their best life.
 
-Reflection & Assessment
-I realized that many of my strengths pointed toward the combination of creativity and logical analysis that web development and coding offers in it’s career along with the ever-learning motto to stay on top of the industry and reach new heights. As the child of parents who were fascinated by artificial intelligence, philosophy and innovation, I’ve used tech as a tool since I was six years old. My favorite games were creating my own pinball game on a Macintosh and playing Pacman on a DOS 86. Yes, I just dated myself, and that’s okay because Pacman still is one of my favorite games!
+Villagetopia is an application in its infancy that I envision helping hundreds, if not thousands, of families interested in moving from their current community find the next best place for their family to live and thrive, a place where there are schools to help their child(ren)’s learning needs.
 
-Vision Board & Goals
-I want to create a life that allows me to connect with people globally and contribute to teams that help improve lives so that users of technology can benefit from a more efficient life and choices that are enhanced via reliable data at their fingertips. There is so much wonderful to experience in our world, why not use the tools we have created to make life even easier and create a better lifestyle for the world at large? I’ve always had a passion for world development and changemakers and I’m in love with how technology can be a tool to create a better world.
+Step one is here as a command line interface (CLI) application that I wrote to help parents find schools that help serve students who are gifted learners. This unique type of student has needs which some schools focus on fulfilling so that our nation’s brightest can excel and contribute to making our world a better place.
 
-Support Team & Faith
-I explored many programs similar to Flatiron School before joining (notably Bloc, Hack Reactor, The Firehose Project, Byte Academy, Code Mentor, and Free Code Camp) the remote online web developer program.
+Building this Gifted School Resource entailed scraping data about schools so that a user could find the information about gifted schools across the country in a user-friendly way.
 
-Three things stood out about Flatiron School that prompted me to enroll and I’ve never looked back as I know I made the best choice for me:
+Would you be interested in trying the CLI app? If so, pull down a Github repository branch from https://github.com/NiushaH/Ruby-CLI-Project-v-000.
 
-the positive, growth mindset culture that is woven throughout the Flatiron School Education and Technical Coaches,
-the curriculum simulates on-the-job developer realities, and
-the interactive Learn platform that truly helps a human feel connected to a community that’s instantly and regularly accessible though geographically miles away.
+Or, watch a demo of the CLI app at: https://youtu.be/rPW-RgfchrA
 
-Path Ahead
-I’m excited about the future and thrilled to be at a school where I have faith that I will become a marketable, skilled web developer. Thank you Avi, Katie, Michael and team at large for making Flatiron School a place to be and thrive.
+This is the first step of many to build Villagetopia… a tool to help society in the realm of education by harnessing the power of technology to present data in a helpful way so families can have the best live(s) possible, with children equipped to reach their potential, and fulfill their dreams.
+
+I’m excited about how software engineering can streamline and maximize efficiency in the workplace and across society. Anything is possible if you have knowledge and invest the time to create it.
+
+#singleparents #dualparents #family #Aspergers #Dyslexia #Dyslexic #Gifted #GiftedEd #2e #TwiceExceptional #bestschool #findaschool #education
